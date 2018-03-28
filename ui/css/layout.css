@@ -1,0 +1,103 @@
+body { 
+}
+h1,h2,h3,h4{
+	margin-top: 0px;
+}
+
+.mainWrapBlock{
+    width: 1000px;
+    margin:auto;
+}
+
+/* HEAD */
+.headTopBlock{
+	height: 60px;
+}
+.headBottomBlock{
+	height: 25px;
+}
+.headTitle h1{
+	margin:0px;
+}
+
+.headBlock{
+    background: white;
+}
+.headCatBlock{
+	background: tan;
+	width: 100%;
+}
+.menuUl{
+	margin:0px;
+	padding: 0px;
+}
+.menuLi, .menuLi a{
+	text-align: center;
+	/* rm underline */
+	list-style-type: none;
+	text-decoration: none;
+}
+.headCatLi, .headCatLi a{
+	float:left;
+	color:  green;
+	width: 100px;
+	background: greenyellow;
+	margin-right: 5px;
+}
+
+/* == LANG MENU */
+.langMenu{
+	padding: 5px;
+	margin: 0px;
+	width: 120px;
+	height: 25px;
+}
+.langMenuUl{
+	float:right;
+}
+.langMenuLi, .langMenuLi a{
+	color:black;
+	float:left;
+	width: 30px;
+	height: 20px;
+	margin: 0px 5px 0px 0px;
+}
+.langMenuLi{
+	padding: 2px;
+	background: #ddd;
+}
+.langMenuItemTitle{
+	text-transform:capitalize;
+}
+/* != LANG MENU */
+/*!= HEAD */
+
+/* CONTENT */
+.contentBlock{
+	min-height: 100px;
+    background: #EEEEEE;
+    width: 90%;
+	padding: 30px;
+}
+
+/* FOOTER */
+.footerBlock{
+	background: orange;
+}
+/* FOOTER */
+
+input#canvasTxt{
+	width: 297px;
+}
+.server-side{
+	display:none;
+}
+.float-left{
+	float: left;
+}
+.float-right{
+	float: right;
+}
+#canva-block{
+	width: 300px;
+}

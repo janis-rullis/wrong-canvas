@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>Wrong canvas</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="/ui/css/layout.css"/>
+        <script type="text/javascript" src="/ui/js/jq.js" ></script>
+		<script>var HAS_SERVERSIDE = true;</script>
+    </head>
+    <body>
+        <div class="mainWrapBlock">
+            <div class="headBlock">
+				<div class="headTopBlock">
+					<div class="headTitle l">
+						<h1>Write, move and save</h1>
+					</div>
+					<div class="langMenu r"></div>
+					<div class="clear"></div>
+				</div>
+            </div>
+			<div class="contentBlock">
+				<div id="canva-block">
+					<div>
+						<canvas id="canvas" width="300" height="300" style="background-image:url('/res/image/canvas.png');background-repeat:no-repeat;" > 
+							<img id="fbUsrImg" src="/res/image/canvas.png"  /> 
+						</canvas>
+						<div class="clear"></div>
+					</div>
+
+					<div>
+						<form>
+							<div>
+								<input type="text" id="canvasTxt" />
+								<div class="clear"></div>
+							</div>
+							<div>
+								<button type="submit" class="save server-side float-left">Save</button>
+								<a href="javasript:;" id="download" class=" float-right">Download</a>
+							</div>
+
+						</form>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<div class="contentBlock server-side">
+				<div>
+					<h3>Saved images</h3>
+				</div>
+				<div id="images"></div>
+			</div>
+        </div>
+
+		<script type="text/javascript" src="/ui/js/mod/images.js" ></script>
+		<script type="text/javascript" src="/ui/js/mod/canvas/main.js" ></script>
+		<script type="text/javascript" src="/ui/js/mod/canvas/move.js" ></script>
+		<script type="text/javascript" src="/ui/js/mod/canvas/txt.js" ></script>
+		<script>
+			var canvasMain, imagesMain;
+			$(function () {
+
+				canvasMain = new CanvasMain();
+				canvasMain.Init();
+				canvasMain.CanMoveTxt(true)
+
+				document.getElementById('download').addEventListener('click', function () {
+					canvasMain.Download(this);
+				}, false);
+
+				// By default, hide server side functionality, because GitHub Pages does not support server side rendering.
+				if (HAS_SERVERSIDE) {
+					$('.server-side').show();
+
+					$('form').on('submit', function (e) {
+						e.preventDefault();
+						canvasMain.Save();
+					});
+
+					imagesMain = new Images();
+					imagesMain.Load();
+				}
+			})
+		</script>
+    </body>
+</html>
