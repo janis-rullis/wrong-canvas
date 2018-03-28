@@ -62,7 +62,8 @@ switch ($_SERVER['REQUEST_METHOD']) {
 		$images = [];
 
 		foreach (new \DirectoryIterator(UPLOAD_DIR) as $fileInfo) {
-			if ($fileInfo->isDot()) {
+
+			if ($fileInfo->isDot() || $fileInfo->getExtension() !== 'png') {
 				continue;
 			}
 
